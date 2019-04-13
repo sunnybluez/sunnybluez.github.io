@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="成长中的一名软件工程师的博客">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      设计模式学习 | Blog of ZZW
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Blog of ZZW</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>设计模式学习</h2>
+  <p class="post-date">2019-04-13</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>最近准备面试，回来重新看了一些设计模式，有的已经忘了，有的又有了新的理解，记录下来。</p>
+<p>一般GOF提出的设计模式下的原则</p>
+<ul>
+<li>对接口编程而不是对实现编程。</li>
+<li>优先使用对象组合而不是继承。</li>
+</ul>
+<h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1. 工厂模式"></a>1. 工厂模式</h2><p>工厂模式一般分为 ：<strong>简单工厂</strong>、<strong>工厂方法</strong>、<strong>抽象工厂模式</strong> </p>
+<p>其中简单工厂一般不属于设计模式中的一种。</p>
+<p>总体来看三者的区别：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">简单工厂</th>
+<th style="text-align:center">工厂方法</th>
+<th style="text-align:center">抽象工厂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一个工厂类</td>
+<td style="text-align:center">多个工厂类</td>
+<td style="text-align:center">多个工厂类</td>
+</tr>
+<tr>
+<td style="text-align:center">一个产品抽象</td>
+<td style="text-align:center">一个产品抽象类</td>
+<td style="text-align:center">多个产品抽象类</td>
+</tr>
+</tbody>
+</table>
+<p>具体分析: 以生产鼠标为例。</p>
+<h3 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h3><p>唯一的工厂有一个静态的生产商品方法，该方法接受一个参数，返回一个抽象商品的具体实例。</p>
+<p>简单工厂就是一个生产某些产品的类。</p>
+<p><img src="/2019/04/13/设计模式学习/简单工厂.png" alt></p>
+<p>（这个工厂就只根据传入的参数确认生产鼠标的类型）</p>
+<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><p>工厂方法/工厂模式 则要求具体的工厂生产具体的产品，但产品的总的类型还是由父工厂决定，此时的生产也不再是父工厂中的静态方法，他将具体的任务分发给了子类，让他们自主生产。</p>
+<p><img src="/2019/04/13/设计模式学习/工厂模式.png" alt></p>
+<p>（工厂生产什么，由父工厂的具体子工厂来生产究竟是惠普还是戴尔的鼠标）</p>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><p>抽象工厂增添了业务，他要求不单单仅限于工厂方法中生产的某一种产品（鼠标），这里比如还可以生产键盘，</p>
+<p>在工厂方法的基础上，为每个工厂增加生产其他抽象产品的方法，父工厂和子工厂都不再局限于生产某种产品，（<strong>这里不要理解成每个工厂只生产某种对应某种抽象产品的产品</strong>）</p>
+<ul>
+<li><strong>当产品只有一个的时候，抽象工厂模式就变成了工厂模式</strong></li>
+<li>在抽象工厂模式中<ul>
+<li>增加一个工厂，对应所有产品抽象类的继承就要增加产品的实现</li>
+<li>增加一个产品抽象类，那么对应的所有工厂都要有生产这种产品的方法</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2019/04/13/设计模式学习/抽象工厂.png" alt></p>
+<h2 id="2-单例模式"><a href="#2-单例模式" class="headerlink" title="2. 单例模式"></a>2. 单例模式</h2><p>比较简单的一种设计模式，<strong>单一</strong>的类<strong>自己</strong>创造自己<strong>唯一</strong>的实例。</p>
+<p>通过私有的构造函数实现。</p>
+<ul>
+<li>1、单例类只能有一个实例</li>
+<li>2、单例类必须自己创建自己的唯一实例</li>
+<li>3、单例类必须给所有其他对象提供这一实例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleObject</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//创建 SingleObject 的一个对象</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> SingleObject instance = <span class="keyword">new</span> SingleObject();</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//让构造函数为 private，这样该类就不会被实例化</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">SingleObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//获取唯一可用的对象</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleObject <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Hello World!"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPatternDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">//不合法的构造函数</span></span><br><span class="line">      <span class="comment">//编译时错误：构造函数 SingleObject() 是不可见的</span></span><br><span class="line">      <span class="comment">//SingleObject object = new SingleObject();</span></span><br><span class="line"> </span><br><span class="line">      <span class="comment">//获取唯一可用的对象</span></span><br><span class="line">      SingleObject object = SingleObject.getInstance();</span><br><span class="line"> </span><br><span class="line">      <span class="comment">//显示消息</span></span><br><span class="line">      object.showMessage();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，单例还涉及了线程安全问题（<a href="http://www.runoob.com/design-pattern/singleton-pattern.html" target="_blank" rel="noopener">单例中的线程安全</a>）</p>
+<h2 id="3-装饰器模式"><a href="#3-装饰器模式" class="headerlink" title="3. 装饰器模式"></a>3. 装饰器模式</h2><p>装饰器模式允许向一个现有的对象添加新的功能，同时又不改变其结构。</p>
+<p>装饰者包含一个装饰的对象的实例</p>
+<p>关键代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">//父类</span><br><span class="line">public abstract class ShapeDecorator implements Shape &#123;</span><br><span class="line">   protected Shape decoratedShape;  //包含的被装饰的对象</span><br><span class="line"> </span><br><span class="line">   public ShapeDecorator(Shape decoratedShape)&#123;</span><br><span class="line">      this.decoratedShape = decoratedShape;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   public void draw()&#123;</span><br><span class="line">      decoratedShape.draw();</span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//具体实现</span><br><span class="line">public class RedShapeDecorator extends ShapeDecorator &#123;</span><br><span class="line"> </span><br><span class="line">   public RedShapeDecorator(Shape decoratedShape) &#123;</span><br><span class="line">      super(decoratedShape);     </span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   @Override</span><br><span class="line">   public void draw() &#123;</span><br><span class="line">      decoratedShape.draw();         </span><br><span class="line">      setRedBorder(decoratedShape);</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   private void setRedBorder(Shape decoratedShape)&#123;</span><br><span class="line">      System.out.println(&quot;Border Color: Red&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">Shape circle = new Circle();</span><br><span class="line">Shape redCircle = new RedShapeDecorator(new Circle());</span><br><span class="line">redCircle.draw();</span><br></pre></td></tr></table></figure>
+<p>装饰者模式的使用场景</p>
+<ul>
+<li>lol英雄技能</li>
+</ul>
+<h2 id="4-观察者模式"><a href="#4-观察者模式" class="headerlink" title="4. 观察者模式"></a>4. 观察者模式</h2><p>当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知它的依赖对象。</p>
+<p>和访问者模式类似， 被观察的对象subject 持有一个观察者对象的集合，添加观察者的方法attach，以及想要通知所有观察者的方法notifyAllObservers，观察者持有一个管擦或对象的实例（在构造时定义）</p>
+<p><img src="/2019/04/13/设计模式学习/观察者模式.jpg" alt></p>
+<h2 id="5-访问者模式"><a href="#5-访问者模式" class="headerlink" title="5. 访问者模式"></a>5. 访问者模式</h2><p>这个模汤老师老师讲的比较多</p>
+<p>每个访问者有一个visit方法，vist参数是访问的对象，一般也会存在一个外部实体用于存储管理待访问的对象（和观察者在待观察者中存储观察对象不同）</p>
+<p><img src="/2019/04/13/设计模式学习/访问者.png" alt></p>
+<hr>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#设计模式">
+    <span class="tag-code">设计模式</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/04/11/开篇/">
+        <span class="nav-arrow">← </span>
+        
+          开篇
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+<div style="margin-bottom:30px;" div>
+    <!-- 二维码 START -->
+    <!-- 
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+     -->
+    <!-- 二维码 END -->
+    
+      <!-- No Comment -->
+    
+  </div></article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-工厂模式"><span class="toc-nav-text">1. 工厂模式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#简单工厂"><span class="toc-nav-text">简单工厂</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#工厂方法"><span class="toc-nav-text">工厂方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#抽象工厂"><span class="toc-nav-text">抽象工厂</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-单例模式"><span class="toc-nav-text">2. 单例模式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#3-装饰器模式"><span class="toc-nav-text">3. 装饰器模式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#4-观察者模式"><span class="toc-nav-text">4. 观察者模式</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#5-访问者模式"><span class="toc-nav-text">5. 访问者模式</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://yoursite.com/2019/04/13/设计模式学习/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
